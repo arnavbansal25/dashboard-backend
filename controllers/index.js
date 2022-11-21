@@ -1,5 +1,4 @@
 const AppError = require("../utils/appError");
-// const pool = require("../services/db");
 const mysqlConntection = require("../services/db");
 
 exports.getAllData = (req, res, next) => {

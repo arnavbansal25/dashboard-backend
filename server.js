@@ -1,50 +1,17 @@
 const express = require("express");
 const cors = require("cors");
-const router = require("./routes");
-const AppError = require("./utils/appError");
-const errorHandler = require("./utils/errorHandler");
-const mysqlConntection = require("./services/db");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// const {createPool} = require('mysql');
-
-// const pool = createPool({
-//   host: "localhost",
-//   user:"root",
-//   password: "root8232",
-//   database: "dashboard",
-//   connectionLimit: 10
-// })
-
-
-
-
-
-
-// app.use(api, router);
-
-// app.all("*", (req, res, next) => {
-//  next(new AppError(`The URL ${req.originalUrl} does not exists`, 404));
-// });
-// app.use(errorHandler);
-
-
 const PORT = 5001;
 
-const r = require('./routes/index')
-app.use('/', r);
+const routes = require("./routes/index");
+app.use("/", routes);
 
 app.listen(PORT, () => {
- console.log(`server running on port ${PORT}`);
+  console.log(`server running on port ${PORT}`);
 });
 
-
 module.exports = app;
-
-
-
-
-
